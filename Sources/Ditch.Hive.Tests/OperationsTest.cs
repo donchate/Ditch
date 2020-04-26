@@ -2,10 +2,10 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Ditch.Core.JsonRpc;
-using Ditch.Steem.Operations;
+using Ditch.Hive.Operations;
 using NUnit.Framework;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     [TestFixture]
     public class OperationsTest : CondenserOperationsTest

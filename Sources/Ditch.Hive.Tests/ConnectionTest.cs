@@ -6,12 +6,12 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Ditch.Core;
-using Ditch.Steem.Models;
+using Ditch.Hive.Models;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 using System.Net;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     [TestFixture]
     public class ConnectionTest : BaseTest

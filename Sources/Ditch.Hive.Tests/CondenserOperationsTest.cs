@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using Cryptography.ECDSA;
 using Ditch.Core;
 using Ditch.Core.JsonRpc;
-using Ditch.Steem.Models;
-using Ditch.Steem.Operations;
+using Ditch.Hive.Models;
+using Ditch.Hive.Operations;
 using NUnit.Framework;
 using Base58 = Ditch.Core.Base58;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     [TestFixture]
     public class CondenserOperationsTest : BaseTest

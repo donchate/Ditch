@@ -5,7 +5,7 @@ using Ditch.Core.JsonRpc;
 using Newtonsoft.Json;
 using NUnit.Framework;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     [TestFixture]
     public class InfoTest : BaseTest

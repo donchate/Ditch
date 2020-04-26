@@ -1,9 +1,9 @@
 using System.Threading;
 using System.Threading.Tasks;
-using Ditch.Steem.Models;
+using Ditch.Hive.Models;
 using NUnit.Framework;
 
-namespace Ditch.Steem.Tests.Apis
+namespace Ditch.Hive.Tests.Apis
 {
     [TestFixture]
     public class BlockApiTest : BaseTest

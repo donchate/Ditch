@@ -9,13 +9,13 @@ using Cryptography.ECDSA;
 using Ditch.Core;
 using Ditch.Core.Interfaces;
 using Ditch.Core.JsonRpc;
-using Ditch.Steem.Models;
-using Ditch.Steem.Operations;
+using Ditch.Hive.Models;
+using Ditch.Hive.Operations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     [TestFixture]
     public class BaseTest

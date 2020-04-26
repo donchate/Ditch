@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Ditch.Core;
 
-namespace Ditch.Steem.Tests
+namespace Ditch.Hive.Tests
 {
     public class UserInfo
     {

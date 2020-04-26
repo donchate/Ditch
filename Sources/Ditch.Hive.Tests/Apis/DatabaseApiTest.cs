@@ -1,10 +1,10 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Ditch.Steem.Models;
+using Ditch.Hive.Models;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
 
-namespace Ditch.Steem.Tests.Apis
+namespace Ditch.Hive.Tests.Apis
 {
     [TestFixture]
     public class DatabaseApiTest : BaseTest
