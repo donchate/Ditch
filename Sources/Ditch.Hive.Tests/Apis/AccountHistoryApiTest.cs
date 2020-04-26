@@ -18,7 +18,7 @@ namespace Ditch.Hive.Tests.Apis
                 OnlyVirtual = false
             };
             var resp = await Api.GetOpsInBlockAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
         
         [Test][Parallelizable]
@@ -29,7 +29,7 @@ namespace Ditch.Hive.Tests.Apis
                 Id = ""
             };
             var resp = await Api.GetTransactionAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
         
         [Test][Parallelizable]
@@ -40,7 +40,7 @@ namespace Ditch.Hive.Tests.Apis
                 Account = User.Login
             };
             var resp = await Api.GetAccountHistoryAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
         
         [Test][Parallelizable]
@@ -54,7 +54,7 @@ namespace Ditch.Hive.Tests.Apis
                     BlockRangeEnd = 20
                 };
                 var resp = await Api.EnumVirtualOpsAsync(args, CancellationToken.None).ConfigureAwait(false);
-                TestPropetries(resp);
+                TestProperties(resp);
             }
             catch (Exception ex)
             {

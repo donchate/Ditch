@@ -121,7 +121,7 @@ namespace Ditch.Hive.Tests
         [Test]
         public async Task TransferOperationTest()
         {
-            var op = new TransferOperation(User.Login, User.Login, new Asset(1, Config.SteemAssetNumSbd), "Hi, it`s test transfer from Ditch (https://github.com/Chainers/Ditch).");
+            var op = new TransferOperation(User.Login, User.Login, new Asset(1, Config.HiveAssetNumHbd), "test transfer from Ditch (https://github.com/Chainers/Ditch)");
             await Post(User.ActiveKeys, false, op).ConfigureAwait(false);
         }
 
@@ -131,7 +131,7 @@ namespace Ditch.Hive.Tests
         [Test]
         public async Task TransferToVestingOperationTest()
         {
-            var op = new TransferToVestingOperation(User.Login, User.Login, new Asset(1, Config.SteemAssetNumSteem));
+            var op = new TransferToVestingOperation(User.Login, User.Login, new Asset(1, Config.HiveAssetNumHive));
             await Post(User.ActiveKeys, false, op).ConfigureAwait(false);
         }
 
@@ -141,7 +141,7 @@ namespace Ditch.Hive.Tests
         [Test]
         public async Task WithdrawVestingOperationTest()
         {
-            var op = new WithdrawVestingOperation(User.Login, new Asset(1, Config.SteemAssetNumVests));
+            var op = new WithdrawVestingOperation(User.Login, new Asset(1, Config.HiveAssetNumVests));
             await Post(User.ActiveKeys, false, op).ConfigureAwait(false);
         }
 
@@ -162,7 +162,7 @@ namespace Ditch.Hive.Tests
 
             var op = new AccountCreateOperation
             {
-                Fee = new Asset(3000, Config.SteemAssetNumSteem),
+                Fee = new Asset(3000, Config.HiveAssetNumHive),
                 Creator = User.Login,
                 NewAccountName = User.Login,
                 JsonMetadata = ""
@@ -219,8 +219,8 @@ namespace Ditch.Hive.Tests
         [Test]
         public async Task WitnessUpdateTest()
         {
-            var accountCreationFee = new Asset(1, Config.SteemAssetNumSteem);
-            var fee = new Asset(1, Config.SteemAssetNumSteem);
+            var accountCreationFee = new Asset(1, Config.HiveAssetNumHive);
+            var fee = new Asset(1, Config.HiveAssetNumHive);
 
             var op = new WitnessUpdateOperation(User.Login, string.Empty, new PublicKeyType(Config.KeyPrefix + "1111111111111111111111111111111114T1Anm"), new LegacyChainProperties(1000, accountCreationFee, 131072), fee);
             await Post(User.ActiveKeys, false, op).ConfigureAwait(false);
@@ -330,7 +330,7 @@ namespace Ditch.Hive.Tests
         {
             var user = User;
             var op = new PostOperation("test", user.Login, "test", "http://yt3.ggpht.com/-Z7aLVW1IhkQ/AAAAAAAAAAI/AAAAAAAAAAA/k54r-HgKdJc/s900-c-k-no-mo-rj-c0xffffff/photo.jpg", GetMeta(null));
-            var popt = new BeneficiariesOperation(user.Login, op.Permlink, new Asset(1000000000, Config.SteemAssetNumSbd), new Beneficiary("steepshot", 1000));
+            var popt = new BeneficiariesOperation(user.Login, op.Permlink, new Asset(1000000000, Config.HiveAssetNumHbd), new Beneficiary("steepshot", 1000));
             await Post(user.PostingKeys, false, op, popt).ConfigureAwait(false);
         }
 
@@ -359,9 +359,9 @@ namespace Ditch.Hive.Tests
         [Test]
         public async Task ClaimRewardBalanceOperationTest()
         {
-            var steem = new Asset(1, Config.SteemAssetNumSteem);
-            var sbd = new Asset(1, Config.SteemAssetNumSbd);
-            var vest = new Asset(1, Config.SteemAssetNumVests);
+            var steem = new Asset(1, Config.HiveAssetNumHive);
+            var sbd = new Asset(1, Config.HiveAssetNumHbd);
+            var vest = new Asset(1, Config.HiveAssetNumVests);
             var op = new ClaimRewardBalanceOperation(User.Login, steem, sbd, vest);
             await Post(User.PostingKeys, false, op).ConfigureAwait(false);
         }

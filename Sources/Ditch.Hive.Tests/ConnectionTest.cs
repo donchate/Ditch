@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,7 +8,6 @@ using Ditch.Core;
 using Ditch.Hive.Models;
 using Newtonsoft.Json.Linq;
 using NUnit.Framework;
-using System.Net;
 
 namespace Ditch.Hive.Tests
 {
@@ -24,38 +22,15 @@ namespace Ditch.Hive.Tests
             Api = new OperationManager(HttpManager);
         }
 
-        /// <summary>
-        /// https://developers.steem.io/quickstart/
-        /// https://www.steem.center/index.php?title=Public_Websocket_Servers
-        /// </summary>
-        /// <param name="url"></param>
+        /// https://developers.hive.io/quickstart/#quickstart-hive-full-nodes
         [Test]
         [Parallelizable]
-        [TestCase("https://api.steemit.com")]
-        [TestCase("https://api.steemitdev.com")]
-        [TestCase("https://steemd-appbase.steemit.com")]
-        [TestCase("https://api.steem.house")]
-        [TestCase("https://appbasetest.timcliff.com")]
-        //[TestCase("https://rpc.curiesteem.com")]
-        [TestCase("https://rpc.steemviz.com")]
-        [TestCase("https://steemd.minnowsupportproject.org")]
-        //[TestCase("https://steemd.privex.io")]
-        //[TestCase("https://anyx.io")]
+        [TestCase("https://api.hive.blog")]
+        [TestCase("https://api.openhive.network")]
+        [TestCase("https://api.hivekings.com")]
+        [TestCase("https://hived.privex.io")]
+        [TestCase("https://anyx.io")]
 
-        //[TestCase("https://api.steemitstage.com")]
-        //[TestCase("https://appbase.buildteam.io")]
-        //[TestCase("https://gtg.steem.house:8090")]
-        //[TestCase("https://node.steem.ws")]
-        //[TestCase("https://rpc.buildteam.io")]
-        //[TestCase("https://rpc.steemliberator.com")]
-        //[TestCase("https://steemd.pevo.science")]
-        //[TestCase("https://steemd.steemgigs.org")]
-
-        //[TestCase("https://steemd.steemit.com")]
-        //[TestCase("https://steemd.steemitstage.com")]
-        [TestCase("https://steemd.steemitdev.com")]
-        //[TestCase("https://steemd2.steepshot.org")]
-        //[TestCase("https://steemd.steepshot.org")]
         public async Task NodeTest(string url)
         {
             var token = CancellationToken.None;
@@ -91,12 +66,9 @@ namespace Ditch.Hive.Tests
             var isTestNet = conf.Value<bool>("IS_TEST_NET");
             Assert.IsFalse(isTestNet, "3 - Testnet");
 
-            var version = configResp.Result.Value<string>("STEEM_BLOCKCHAIN_VERSION");
-            if (string.IsNullOrEmpty(version))
-                version = configResp.Result.Value<string>("STEEMIT_BLOCKCHAIN_VERSION");
-
-            Assert.IsFalse(string.IsNullOrEmpty(version), "4 - no version");
-            Assert.IsTrue(new Regex("^0.20.[0-9]{1,2}$").IsMatch(version), "5 - not supported version");
+            var version = configResp.Result.Value<string>("HIVE_BLOCKCHAIN_VERSION");
+            Assert.IsFalse(string.IsNullOrEmpty(version), "4 - unknown version");
+            Assert.IsTrue(new Regex("^0.23.[0-9]{1,2}$").IsMatch(version), "5 - not supported version");
             WriteLine(version);
 
             var args = new GetBlockArgs
@@ -120,8 +92,5 @@ namespace Ditch.Hive.Tests
             WriteLine($"time (mls): {sw.ElapsedMilliseconds}");
             Assert.IsTrue(Api.IsConnected);
         }
-
-
-      
     }
 }

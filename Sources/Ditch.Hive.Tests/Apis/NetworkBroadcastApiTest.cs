@@ -46,7 +46,7 @@ namespace Ditch.Hive.Tests.Apis
                 Block = new SignedBlock()
             };
             var resp = await Api.BroadcastBlockAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
     }
 }

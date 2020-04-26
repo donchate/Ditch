@@ -15,7 +15,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetTrendingTagsArgs();
             var resp = await Api.GetTrendingTagsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -26,7 +26,7 @@ namespace Ditch.Hive.Tests.Apis
                 Author = User.Login
             };
             var resp = await Api.GetTagsUsedByAuthorAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -38,7 +38,7 @@ namespace Ditch.Hive.Tests.Apis
                 Permlink = "let-s-make-steem-great-again-incentives-to-sponsors-announcement-from-steepshot"
             };
             var resp = await Api.GetDiscussionAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -50,7 +50,7 @@ namespace Ditch.Hive.Tests.Apis
                 Permlink = "let-s-make-steem-great-again-incentives-to-sponsors-announcement-from-steepshot"
             };
             var resp = await Api.GetContentRepliesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -58,7 +58,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetPostDiscussionsByPayoutArgs();
             var resp = await Api.GetPostDiscussionsByPayoutAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -66,7 +66,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetCommentDiscussionsByPayoutArgs();
             var resp = await Api.GetCommentDiscussionsByPayoutAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -74,7 +74,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByTrendingArgs();
             var resp = await Api.GetDiscussionsByTrendingAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -82,7 +82,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByCreatedArgs();
             var resp = await Api.GetDiscussionsByCreatedAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -90,7 +90,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByActiveArgs();
             var resp = await Api.GetDiscussionsByActiveAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -98,7 +98,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByCashoutArgs();
             var resp = await Api.GetDiscussionsByCashoutAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -106,7 +106,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByVotesArgs();
             var resp = await Api.GetDiscussionsByVotesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -114,7 +114,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByChildrenArgs();
             var resp = await Api.GetDiscussionsByChildrenAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -122,7 +122,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetDiscussionsByHotArgs();
             var resp = await Api.GetDiscussionsByHotAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -135,7 +135,7 @@ namespace Ditch.Hive.Tests.Apis
                 FilterTags = new[] {"steepshot"}
             };
             var resp = await Api.GetDiscussionsByFeedAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -148,7 +148,7 @@ namespace Ditch.Hive.Tests.Apis
                 FilterTags = new[] { "steepshot" }
             };
             var resp = await Api.GetDiscussionsByBlogAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -159,7 +159,7 @@ namespace Ditch.Hive.Tests.Apis
                 StartAuthor = User.Login
             };
             var resp = await Api.GetDiscussionsByCommentsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -170,7 +170,7 @@ namespace Ditch.Hive.Tests.Apis
                 ParentAuthor = "steepshot"
             };
             var resp = await Api.GetDiscussionsByPromotedAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -183,7 +183,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.GetRepliesByLastUpdateAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -197,7 +197,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.GetDiscussionsByAuthorBeforeDateAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -209,7 +209,7 @@ namespace Ditch.Hive.Tests.Apis
                 Author = "steepshot"
             };
             var resp = await Api.GetActiveVotesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
     }
 }

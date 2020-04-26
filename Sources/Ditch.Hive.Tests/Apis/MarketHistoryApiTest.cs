@@ -13,14 +13,14 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_ticker()
         {
             var resp = await Api.GetTickerAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
         public async Task get_volume()
         {
             var resp = await Api.GetVolumeAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -28,7 +28,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetOrderBookArgs();
             var resp = await Api.GetOrderBookAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -41,7 +41,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 100
             };
             var resp = await Api.GetTradeHistoryAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -49,7 +49,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetRecentTradesArgs();
             var resp = await Api.GetRecentTradesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -62,14 +62,14 @@ namespace Ditch.Hive.Tests.Apis
                 End = new DateTime(2017, 6, 2)
             };
             var resp = await Api.GetMarketHistoryAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
         public async Task get_market_history_buckets()
         {
             var resp = await Api.GetMarketHistoryBucketsAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
     }
 }

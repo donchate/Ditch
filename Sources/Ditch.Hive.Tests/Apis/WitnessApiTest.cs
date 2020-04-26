@@ -17,7 +17,7 @@ namespace Ditch.Hive.Tests.Apis
                 Type = BandwidthType.Forum
             };
             var resp = await Api.GetAccountBandwidthAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -25,7 +25,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new GetReserveRatioArgs();
             var resp = await Api.GetReserveRatioAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
     }
 }

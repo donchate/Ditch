@@ -60,7 +60,7 @@ namespace Ditch.Hive.Tests
             Assert.IsTrue(Api.IsConnected, "Enable connect to node");
         }
 
-        protected void TestPropetries<T>(JsonRpcResponse<T> resp, bool isCondenser = false)
+        protected void TestProperties<T>(JsonRpcResponse<T> resp, bool isCondenser = false)
         {
             WriteLine(resp);
             Assert.IsFalse(resp.IsError);

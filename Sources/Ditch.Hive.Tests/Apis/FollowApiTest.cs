@@ -19,7 +19,7 @@ namespace Ditch.Hive.Tests.Apis
                 Type = FollowType.Blog
             };
             var resp = await Api.GetFollowersAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -33,7 +33,7 @@ namespace Ditch.Hive.Tests.Apis
                 Type = FollowType.Blog
             };
             var resp = await Api.GetFollowingAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -44,7 +44,7 @@ namespace Ditch.Hive.Tests.Apis
                 Account = User.Login
             };
             var resp = await Api.GetFollowCountAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -57,7 +57,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 10
             };
             var resp = await Api.GetFeedEntriesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -70,7 +70,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 10
             };
             var resp = await Api.GetFeedAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -83,7 +83,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 10
             };
             var resp = await Api.GetBlogEntriesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -96,7 +96,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 10
             };
             var resp = await Api.GetBlogAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -108,7 +108,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 10
             };
             var resp = await Api.GetAccountReputationsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -120,7 +120,7 @@ namespace Ditch.Hive.Tests.Apis
                 Permlink = "finally-arrived-steepshot-goes-to-beta-meet-the-updated-open-source-android-app"
             };
             var resp = await Api.GetRebloggedByAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test][Parallelizable]
@@ -131,7 +131,7 @@ namespace Ditch.Hive.Tests.Apis
                 BlogAccount = User.Login
             };
             var resp = await Api.GetBlogAuthorsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
     }
 }

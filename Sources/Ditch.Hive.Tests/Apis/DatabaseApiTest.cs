@@ -23,7 +23,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_dynamic_global_properties()
         {
             var resp = await Api.GetDynamicGlobalPropertiesAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_witness_schedule()
         {
             var resp = await Api.GetWitnessScheduleAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_hardfork_properties()
         {
             var resp = await Api.GetHardforkPropertiesAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -47,7 +47,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_reward_funds()
         {
             var resp = await Api.GetRewardFundsAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_current_price_feed()
         {
             var resp = await Api.GetCurrentPriceFeedAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -63,7 +63,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_feed_history()
         {
             var resp = await Api.GetFeedHistoryAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -72,7 +72,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new ListWitnessesArgs();
             var resp = await Api.ListWitnessesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace Ditch.Hive.Tests.Apis
                 Owners = new[] { User.Login }
             };
             var resp = await Api.FindWitnessesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -98,7 +98,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListWitnessVotesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace Ditch.Hive.Tests.Apis
         public async Task get_active_witnesses()
         {
             var resp = await Api.GetActiveWitnessesAsync(CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -115,7 +115,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new ListAccountsArgs();
             var resp = await Api.ListAccountsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -127,7 +127,7 @@ namespace Ditch.Hive.Tests.Apis
                 Accounts = new[] { User.Login }
             };
             var resp = await Api.FindAccountsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -140,7 +140,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListOwnerHistoriesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -149,7 +149,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindOwnerHistoriesArgs();
             var resp = await Api.FindOwnerHistoriesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -163,7 +163,7 @@ namespace Ditch.Hive.Tests.Apis
                 Order = SortOrderType.ByAccount
             };
             var resp = await Api.ListAccountRecoveryRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -175,7 +175,7 @@ namespace Ditch.Hive.Tests.Apis
                 Accounts = new[] { User.Login }
             };
             var resp = await Api.FindAccountRecoveryRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -187,7 +187,7 @@ namespace Ditch.Hive.Tests.Apis
                 Order = SortOrderType.ByAccount
             };
             var resp = await Api.ListChangeRecoveryAccountRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -199,7 +199,7 @@ namespace Ditch.Hive.Tests.Apis
                 Accounts = new[] { User.Login }
             };
             var resp = await Api.FindChangeRecoveryAccountRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -214,7 +214,7 @@ namespace Ditch.Hive.Tests.Apis
             };
 
             var resp = await Api.ListEscrowsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -223,7 +223,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindEscrowsArgs();
             var resp = await Api.FindEscrowsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -237,7 +237,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListWithdrawVestingRoutesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -250,7 +250,7 @@ namespace Ditch.Hive.Tests.Apis
                 Order = SortOrderType.ByWithdrawRoute
             };
             var resp = await Api.FindWithdrawVestingRoutesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -265,7 +265,7 @@ namespace Ditch.Hive.Tests.Apis
             };
 
             var resp = await Api.ListSavingsWithdrawalsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -274,7 +274,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindSavingsWithdrawalsArgs();
             var resp = await Api.FindSavingsWithdrawalsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -288,7 +288,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListVestingDelegationsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -297,7 +297,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindVestingDelegationsArgs();
             var resp = await Api.FindVestingDelegationsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -311,7 +311,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListVestingDelegationExpirationsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -320,7 +320,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindVestingDelegationExpirationsArgs();
             var resp = await Api.FindVestingDelegationExpirationsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -334,7 +334,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListSbdConversionRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -343,7 +343,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new FindSbdConversionRequestsArgs();
             var resp = await Api.FindSbdConversionRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -355,7 +355,7 @@ namespace Ditch.Hive.Tests.Apis
                 Order = SortOrderType.ByAccount
             };
             var resp = await Api.ListDeclineVotingRightsRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -367,7 +367,7 @@ namespace Ditch.Hive.Tests.Apis
                 Accounts = new[] { User.Login }
             };
             var resp = await Api.FindDeclineVotingRightsRequestsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -382,7 +382,7 @@ namespace Ditch.Hive.Tests.Apis
             };
 
             var resp = await Api.ListCommentsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -394,7 +394,7 @@ namespace Ditch.Hive.Tests.Apis
                 Comments = new[] { new[] { "steepshot", "steepshot-updates-join-ios-closed-beta-testing-full-screen-mode-for-desktops-sponsors-incentives-and-more" } }
             };
             var resp = await Api.FindCommentsAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -413,7 +413,7 @@ namespace Ditch.Hive.Tests.Apis
                 Limit = 3
             };
             var resp = await Api.ListVotesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -426,7 +426,7 @@ namespace Ditch.Hive.Tests.Apis
                 Permlink = "let-s-make-steem-great-again-incentives-to-sponsors-announcement-from-steepshot"
             };
             var resp = await Api.FindVotesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -440,7 +440,7 @@ namespace Ditch.Hive.Tests.Apis
                 Order = SortOrderType.ByAccount
             };
             var resp = await Api.ListLimitOrdersAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -452,7 +452,7 @@ namespace Ditch.Hive.Tests.Apis
                 Account = User.Login
             };
             var resp = await Api.FindLimitOrdersAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -464,7 +464,7 @@ namespace Ditch.Hive.Tests.Apis
                 Trx = await GetSignedTransaction().ConfigureAwait(false)
             };
             var resp = await Api.GetTransactionHexAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -487,7 +487,7 @@ namespace Ditch.Hive.Tests.Apis
                 AvailableKeys = new[] { pKey }
             };
             var resp = await Api.GetRequiredSignaturesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -499,7 +499,7 @@ namespace Ditch.Hive.Tests.Apis
                 Trx = await GetSignedTransaction().ConfigureAwait(false)
             };
             var resp = await Api.GetPotentialSignaturesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -511,7 +511,7 @@ namespace Ditch.Hive.Tests.Apis
                 Trx = await GetSignedTransaction().ConfigureAwait(false)
             };
             var resp = await Api.VerifyAuthorityAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -525,7 +525,7 @@ namespace Ditch.Hive.Tests.Apis
                 Signers = new PublicKeyType[0]
             };
             var resp = await Api.VerifyAccountAuthorityAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -535,7 +535,7 @@ namespace Ditch.Hive.Tests.Apis
         {
             var args = new VerifySignaturesArgs();
             var resp = await Api.VerifySignaturesAsync(args, CancellationToken.None).ConfigureAwait(false);
-            TestPropetries(resp);
+            TestProperties(resp);
         }
 
         [Test]
@@ -555,7 +555,7 @@ namespace Ditch.Hive.Tests.Apis
             if (isEnableSmt)
             {
                 var resp = await Api.GetSmtNextIdentifierAsync(CancellationToken.None).ConfigureAwait(false);
-                TestPropetries(resp);
+                TestProperties(resp);
             }
         }
     }
