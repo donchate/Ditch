@@ -49,7 +49,7 @@ namespace Ditch.Hive.Tests
             {
                 throw;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.Fail($"1 - DOWN {sw.ElapsedMilliseconds}");
                 return;

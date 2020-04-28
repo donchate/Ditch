@@ -196,7 +196,18 @@ namespace Ditch.Hive
         //  "condenser_api.get_account_references",
         //  "condenser_api.get_account_reputations",
         //  "condenser_api.get_account_votes",
-        //  "condenser_api.get_accounts",
+
+        /// <summary>
+        /// condenser_api.get_accounts
+        /// </summary>
+        /// <param name="args">account:string array</param>
+        /// <param name="token"></param>
+        /// <returns>List<ApiAccountObject></returns>
+        public Task<JsonRpcResponse<List<ApiAccountObject>>> CondenserGetAccountsAsync(string[] args, CancellationToken token)
+        {
+            return CondenserCustomGetRequestAsync<List<ApiAccountObject>>(KnownApiNames.CondenserApi, "get_accounts", args, token);
+        }
+
         //  "condenser_api.get_active_votes",
 
         /// <summary>

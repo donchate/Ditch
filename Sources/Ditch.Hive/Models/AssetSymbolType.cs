@@ -141,12 +141,12 @@ namespace Ditch.Hive.Models
             {
                 case Config.HiveAssetNumHive:
                     {
-                        serializeHelper.AddToMessageStream(stream, typeof(ulong), Config.SteemSymbolSer);
+                        serializeHelper.AddToMessageStream(stream, typeof(ulong), Config.HiveSymbolSer);
                         break;
                     }
                 case Config.HiveAssetNumHbd:
                     {
-                        serializeHelper.AddToMessageStream(stream, typeof(ulong), Config.SbdSymbolSer);
+                        serializeHelper.AddToMessageStream(stream, typeof(ulong), Config.HbdSymbolSer);
                         break;
                     }
                 case Config.HiveAssetNumVests:

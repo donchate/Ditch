@@ -15,7 +15,7 @@ namespace Ditch.Hive.Helpers
 
             var ver = (0 | major) << 16;
             ver = (ver | hardfork) << 8;
-            ver = ver | release;
+            ver |= release;
             return ver;
         }
 

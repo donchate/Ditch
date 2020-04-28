@@ -20,11 +20,9 @@ namespace Ditch.Hive
     public partial class OperationManager
     {
         public JsonSerializerSettings NewJsonSerializerSettings { get; set; }
-
         public MessageSerializer MessageSerializer { get; }
         public IConnectionManager ConnectionManager { get; }
         public byte[] ChainId { get; set; } = Config.ChainId;
-
         public bool IsConnected => ConnectionManager.IsConnected;
 
         #region Constructors
@@ -49,9 +47,21 @@ namespace Ditch.Hive
 
         #endregion Constructors
 
-        public async Task<bool> ConnectToAsync(string endpoin, CancellationToken token)
+        /// <summary>
+        /// Connect to a automagically ranked node
+        /// </summary>        
+        public async Task<bool> ConnectToAsync(CancellationToken token)
         {
-            return await ConnectionManager.ConnectToAsync(endpoin, token).ConfigureAwait(false);
+            var node = NodeManager.GetBestNode();
+            return await ConnectionManager.ConnectToAsync(node.Url, token).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Connect to a specified node
+        /// </summary>
+        public async Task<bool> ConnectToAsync(string endpoint, CancellationToken token)
+        {
+            return await ConnectionManager.ConnectToAsync(endpoint, token).ConfigureAwait(false);
         }
 
         /// <summary>

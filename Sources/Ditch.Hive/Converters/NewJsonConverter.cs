@@ -41,21 +41,34 @@ namespace Ditch.Hive.Converters
 
         protected override Asset ReadAsset(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
-            if (reader.TokenType != JsonToken.StartObject)
-                throw new InvalidCastException($"{reader.TokenType} to Asset");
-
-            reader.Read();
-            var val = reader.ReadAsString();
-            var amount = long.Parse(val);
-            reader.Read();
-            var decimalPlaces = (byte)reader.ReadAsInt32();
-            reader.Read();
-            var nai = reader.ReadAsString();
-            reader.Read();
-
             var asset = new Asset();
-            asset.FromNewFormat(amount, decimalPlaces, nai);
 
+            // Asset as JSON object such as from condenser_api
+            if (reader.TokenType == JsonToken.StartObject)
+            {
+                reader.Read();
+                var val = reader.ReadAsString();
+                var amount = long.Parse(val);
+                reader.Read();
+                var decimalPlaces = (byte)reader.ReadAsInt32();
+                reader.Read();
+                var nai = reader.ReadAsString();
+                reader.Read();
+
+                asset.FromNewFormat(amount, decimalPlaces, nai);
+
+            }
+            // Asset as string such as from hivemind
+            else if (reader.TokenType == JsonToken.String)
+            {
+                //reader.Read();
+                var val = reader.Value.ToString();
+                asset.FromOldFormat(val);
+            }
+            else
+            {
+                throw new InvalidCastException($"{reader.TokenType} to Asset");
+            }
 
             return asset;
         }

@@ -7,7 +7,7 @@ namespace Ditch.Hive.Models
     [JsonObject(MemberSerialization.OptIn)]
     public class GetRankedPostsArgs
     {
-        public enum sortOptions
+        public enum SortOptions
         {
             trending,
             hot,
@@ -20,7 +20,7 @@ namespace Ditch.Hive.Models
 
         [JsonProperty("sort")]
         [JsonConverter(typeof(StringEnumConverter))]
-        public sortOptions Sort {get; set;}
+        public SortOptions Sort {get; set;}
 
         [JsonProperty("tag")]
         public string Tag { get; set; }
