@@ -21,14 +21,19 @@ namespace Ditch.Hive
         // get_trending_topics
         // get_post
 
-        public Task<JsonRpcResponse<List<HivemindPost>>> GetAccountPosts(GetAccountPostsArgs args, CancellationToken token)
+        public Task<JsonRpcResponse<List<HivemindPost>>> BridgeGetAccountPostsAsync(GetAccountPostsArgs args, CancellationToken token)
         {
             return CustomGetRequestAsync<List<HivemindPost>>(KnownApiNames.BridgeApi, "get_account_posts", args, token);
         }
 
-        public Task<JsonRpcResponse<List<HivemindPost>>> GetRankedPostsAsync(GetRankedPostsArgs args, CancellationToken token)
+        public Task<JsonRpcResponse<List<HivemindPost>>> BridgeGetRankedPostsAsync(GetRankedPostsArgs args, CancellationToken token)
         {
             return CustomGetRequestAsync<List<HivemindPost>>(KnownApiNames.BridgeApi, "get_ranked_posts", args, token);
+        }
+
+        public Task<JsonRpcResponse<BridgeGetDiscussionReturn>> BridgeGetDiscussionAsync(GetDiscussionArgs args, CancellationToken token)
+        {
+            return CustomGetRequestAsync<BridgeGetDiscussionReturn>(KnownApiNames.BridgeApi, "get_discussion", args, token);
         }
     }
 }

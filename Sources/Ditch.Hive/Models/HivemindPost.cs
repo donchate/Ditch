@@ -30,7 +30,7 @@ namespace Ditch.Hive.Models
         public string Body { get; set; }
 
         [JsonProperty("json_metadata")]
-        public Dictionary<string, dynamic> JsonMetadata { get; set; }
+        public ApiCommentObjectMeta JsonMetadata { get; set; }
 
         [JsonProperty("created")]
         public TimePointSec Created { get; set; }

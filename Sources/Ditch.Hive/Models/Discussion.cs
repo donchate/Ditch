@@ -81,7 +81,7 @@ namespace Ditch.Hive.Models
         /// </summary>
         /// <returns>API type: string</returns>
         [JsonProperty("json_metadata")]
-        public string JsonMetadata {get; set;}
+        public ApiCommentObjectMeta JsonMetadata {get; set;}
 
         /// <summary>
         /// API name: last_update

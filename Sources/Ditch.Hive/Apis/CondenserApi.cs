@@ -208,7 +208,16 @@ namespace Ditch.Hive
             return CondenserCustomGetRequestAsync<List<ApiAccountObject>>(KnownApiNames.CondenserApi, "get_accounts", args, token);
         }
 
-        //  "condenser_api.get_active_votes",
+        /// <summary>
+        /// Returns all votes for the given post.
+        /// </summary>
+        /// <param name="args">author:string, permlink:string</param>
+        /// <param name="token"></param>
+        /// <returns>List<VoteState></returns>
+        public Task<JsonRpcResponse<List<VoteState>>> CondenserGetActiveVotesAsync(string[] args, CancellationToken token)
+        {
+            return CondenserCustomGetRequestAsync<List<VoteState>>(KnownApiNames.CondenserApi, "get_active_votes", args, token);
+        }
 
         /// <summary>
         /// API name: get_active_witnesses
@@ -222,7 +231,6 @@ namespace Ditch.Hive
             return CondenserCustomGetRequestAsync<GetActiveWitnessesReturn>(KnownApiNames.CondenserApi, "get_active_witnesses", token);
         }
 
-        //  "condenser_api.get_block",
         public Task<JsonRpcResponse<GetBlockReturn>> CondenserGetBlockAsync(GetBlockArgs args, CancellationToken token)
         {
             return CondenserCustomGetRequestAsync<GetBlockReturn>(KnownApiNames.CondenserApi, "get_block", args, token);

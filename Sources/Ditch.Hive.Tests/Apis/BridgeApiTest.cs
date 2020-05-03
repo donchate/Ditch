@@ -22,7 +22,19 @@ namespace Ditch.Hive.Tests.Apis
                 Sort = GetRankedPostsArgs.SortOptions.created,
                 Observer = "ditch"
             };
-            var resp = await Api.GetRankedPostsAsync(args, CancellationToken.None).ConfigureAwait(false);
+            var resp = await Api.BridgeGetRankedPostsAsync(args, CancellationToken.None).ConfigureAwait(false);
+            Assert.IsNull(resp.Exception);
+        }
+
+        [Test]
+        public async Task GetDiscussion()
+        {
+            var args = new GetDiscussionArgs
+            {
+                Author = "adelepazani",
+                Permlink = "how-i-paint-landscape-with-acrylic-on-canvas"
+            };
+            var resp = await Api.BridgeGetDiscussionAsync(args, CancellationToken.None).ConfigureAwait(false);
             Assert.IsNull(resp.Exception);
         }
     }

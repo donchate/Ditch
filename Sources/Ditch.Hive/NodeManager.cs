@@ -56,6 +56,11 @@ namespace Ditch.Hive
             return nodes.Where(Active => true).Aggregate((agg, next) =>
                 next.Score > agg.Score ? next : agg);
         }
+
+        public static ApiNode[] GetActiveNodes()
+        {
+            return nodes.Where(Active => true).OrderByDescending(x => x.Score).ToArray();
+        }
         public static async Task UpdateNodes()
         {
             string[] args = { "fullnodeupdate" };
