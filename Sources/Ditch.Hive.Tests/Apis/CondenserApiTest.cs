@@ -62,6 +62,14 @@ namespace Ditch.Hive.Tests.Apis
         //  "condenser_api.get_account_reputations",
         //  "condenser_api.get_account_votes",
         //  "condenser_api.get_accounts",
+        [Test]
+        [Parallelizable]
+        public async Task get_accounts()
+        {
+            var resp = await Api.CondenserGetAccountsAsync(new string[] { "donchate" }, CancellationToken.None).ConfigureAwait(false);
+            Assert.IsFalse(resp.IsError);
+        }
+
         //  "condenser_api.get_active_votes",
 
         [Test]

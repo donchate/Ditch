@@ -208,7 +208,7 @@ namespace Ditch.Hive.Tests
             var resp = await Api.FindAccountsAsync(args, CancellationToken.None).ConfigureAwait(false);
             var acc = resp.Result.Accounts[0];
 
-            var op = new AccountUpdateOperation(User.Login, acc.MemoKey, acc.JsonMetadata);
+            var op = new AccountUpdateOperation(User.Login, acc.MemoKey, acc.JsonMetadata.ToString());
             await Post(User.ActiveKeys, false, op).ConfigureAwait(false);
         }
 

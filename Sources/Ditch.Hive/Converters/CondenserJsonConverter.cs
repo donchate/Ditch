@@ -7,6 +7,7 @@ using Ditch.Core.Converters;
 using Ditch.Core.Models;
 using Ditch.Hive.Models;
 using Ditch.Hive.Operations;
+using System.Diagnostics;
 
 namespace Ditch.Hive.Converters
 {
@@ -27,8 +28,8 @@ namespace Ditch.Hive.Converters
                     {nameof(Asset), (ReadAsset, WriteAsset)},
                     {nameof(LegacyAsset), (ReadLegacyAsset, WriteLegacyAsset)},
                     {nameof(Operation), (ReadOperation, WriteOperation)},
+                    {nameof(ApiAccountObjectMeta), (ReadApiAccountObjectMeta, WriteApiAccountObjectMeta) },
                     {nameof(CommentPayoutBeneficiaries), (ReadCommentPayoutBeneficiaries, WriteCommentPayoutBeneficiaries)},
-
                     {nameof(BroadcastBlockArgs), (ReadBroadcastBlockArgs, WriteBroadcastBlockArgs)},
                     {nameof(BroadcastTransactionArgs), (ReadBroadcastTransactionArgs, WriteBroadcastTransactionArgs)},
                     {nameof(BroadcastTransactionSynchronousArgs), (ReadBroadcastTransactionSynchronousArgs, WriteBroadcastTransactionSynchronousArgs)},
@@ -47,14 +48,11 @@ namespace Ditch.Hive.Converters
                     {nameof(GetTrendingTagsReturn), (ReadGetTrendingTagsReturn, WriteGetTrendingTagsReturn)},
                     {nameof(VerifyAuthorityArgs), (ReadVerifyAuthorityArgs, WriteVerifyAuthorityArgs)},
                     {nameof(VerifyAuthorityReturn), (ReadVerifyAuthorityReturn, WriteVerifyAuthorityReturn)},
-
-
                     {nameof(GetRequiredSignaturesArgs), (ReadGetRequiredSignaturesArgs, WriteGetRequiredSignaturesArgs)},
                     {nameof(GetRequiredSignaturesReturn), (ReadGetRequiredSignaturesReturn, WriteGetRequiredSignaturesReturn)},
                     //{nameof(), (Read, Write)},
                 };
         }
-
 
         public override bool CanConvert(Type objectType)
         {
@@ -80,7 +78,6 @@ namespace Ditch.Hive.Converters
             else
                 ((ICustomJson)value).WriteJson(writer, serializer);
         }
-
 
         #region Asset
 
@@ -664,5 +661,17 @@ namespace Ditch.Hive.Converters
         }
 
         #endregion
+        
+        protected void WriteApiAccountObjectMeta(JsonWriter writer, JsonSerializer serializer, object obj)
+        {
+            var value = (ApiAccountObjectMeta)obj;
+            writer.WriteValue(value.ToString());
+        }
+
+        protected ApiAccountObjectMeta ReadApiAccountObjectMeta(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+        {
+            var unescapedJsonString = serializer.Deserialize<string>(reader);
+            return JsonConvert.DeserializeObject<ApiAccountObjectMeta>(unescapedJsonString);
+        }
     }
 }

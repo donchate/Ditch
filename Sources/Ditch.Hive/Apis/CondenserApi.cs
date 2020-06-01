@@ -242,7 +242,12 @@ namespace Ditch.Hive
         //  "condenser_api.get_chain_properties",
         //  "condenser_api.get_comment_discussions_by_payout",
         //  "condenser_api.get_config",
-        //  "condenser_api.get_content",
+
+        public Task<JsonRpcResponse<Discussion>> CondenserGetContent(GetDiscussionArgs args, CancellationToken token)
+        {
+            return CondenserCustomGetRequestAsync<Discussion>(KnownApiNames.CondenserApi, "get_content", args, token);
+        }
+
         //  "condenser_api.get_content_replies",
         //  "condenser_api.get_conversion_requests",
         //  "condenser_api.get_current_median_history_price",
@@ -268,8 +273,17 @@ namespace Ditch.Hive
         //  "condenser_api.get_feed_entries",
         //  "condenser_api.get_feed_history",
         //  "condenser_api.get_follow_count",
-        //  "condenser_api.get_followers",
-        //  "condenser_api.get_following",
+
+        public Task<JsonRpcResponse<GetFollowersReturn>> CondenserGetFollowersAsync(GetFollowersArgs args, CancellationToken token)
+        {
+            return CondenserCustomGetRequestAsync<GetFollowersReturn>(KnownApiNames.CondenserApi, "get_followers", args, token);
+        }
+
+        public Task<JsonRpcResponse<GetFollowingReturn>> CondenserGetFollowingAsync(GetFollowingArgs args, CancellationToken token)
+        {
+            return CondenserCustomGetRequestAsync<GetFollowingReturn>(KnownApiNames.CondenserApi, "get_following", args, token);
+        }
+
         //  "condenser_api.get_hardfork_version",
         //  "condenser_api.get_key_references",
         //  "condenser_api.get_market_history",
