@@ -1,5 +1,5 @@
-﻿using Ditch.Hive.Models;
-using Newtonsoft.Json;
+﻿using Ditch.Core;
+using Ditch.Hive.Models;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -11,14 +11,16 @@ namespace Ditch.Hive
     // https://github.com/holgern/beem/blob/master/beem/nodelist.py
     public static class NodeManager
     {
-        public static OperationManager Api;
+        private static readonly RepeatHttpClient HttpClient = new RepeatHttpClient();
+        private static readonly HttpManager HttpManager = new HttpManager(HttpClient);
+        public static OperationManager Api = new OperationManager(HttpManager);
 
         public static List<ApiNode> nodes = new List<ApiNode>(){
             new ApiNode()
             {
                 Url = "https://api.hive.blog",
                 Version = "0.23.0",
-                Owner = "openhive",
+                Owner = "hive",
                 Score = 50
             },
             new ApiNode()
@@ -30,14 +32,21 @@ namespace Ditch.Hive
             },
             new ApiNode()
             {
+                Url = "https://anyx.io",
+                Version = "0.23.0",
+                Owner = "anyx",
+                Score = 50
+            },
+            new ApiNode()
+            {
                 Url = "https://api.openhive.network",
                 Version = "0.23.0",
-                Owner = "openhive",
+                Owner = "gtg",
                 Score = 20
             },
             new ApiNode()
             {
-                Url = "https://api.guiltyparties.com",
+                Url = "https://api.hive.blue",
                 Version = "0.23.0",
                 Owner = "guiltyparties",
                 Score = 20
@@ -48,7 +57,35 @@ namespace Ditch.Hive
                 Version = "0.23.0",
                 Owner = "openhive",
                 Score = 10
-            }  
+            },
+            new ApiNode()
+            {
+                Url = "https://hived.privex.io",
+                Version = "0.23.0",
+                Owner = "someguy123",
+                Score = 10
+            },
+            new ApiNode()
+            {
+                Url = "https://api.pharesim.me",
+                Version = "0.23.0",
+                Owner = "pharesim",
+                Score = 10
+            },
+            new ApiNode()
+            {
+                Url = "https://rpc.ausbit.dev",
+                Version = "0.23.0",
+                Owner = "ausbitbank",
+                Score = 10
+            },
+            new ApiNode()
+            {
+                Url = "https://hive.roelandp.nl",
+                Version = "0.23.0",
+                Owner = "roelandp",
+                Score = 10
+            }
         };
 
         public static ApiNode GetBestNode()
@@ -61,10 +98,12 @@ namespace Ditch.Hive
         {
             return nodes.Where(Active => true).OrderByDescending(x => x.Score).ToArray();
         }
-        public static async Task UpdateNodes()
+        
+        public static async Task UpdateScores()
         {
             string[] args = { "fullnodeupdate" };
-            var response = await Api.CondenserGetAccountsAsync(args, CancellationToken.None).ConfigureAwait(false);
+            await Api.ConnectToAsync(CancellationToken.None).ConfigureAwait(false);
+            var response = await Api.CondenserGetAccountsAsync(args, CancellationToken.None);
         }
     }
 }

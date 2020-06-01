@@ -7,5 +7,10 @@
         public string Owner { get; set; }
         public byte Score { get; set; }
         public bool Active { get; set; } = true;
+
+        public override string ToString()
+        {
+            return Url;
+        }
     }
 }

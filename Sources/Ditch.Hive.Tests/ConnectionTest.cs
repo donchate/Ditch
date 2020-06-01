@@ -20,18 +20,17 @@ namespace Ditch.Hive.Tests
             HttpClient = new RepeatHttpClient();
             HttpManager = new HttpManager(HttpClient);
             Api = new OperationManager(HttpManager);
+            ApiNode[] ActiveNodes = NodeManager.GetActiveNodes();
         }
 
-        /// https://developers.hive.io/quickstart/#quickstart-hive-full-nodes
         [Test]
-        [Parallelizable]
-        [TestCase("https://api.hive.blog")]
-        [TestCase("https://api.openhive.network")]
-        [TestCase("https://api.hivekings.com")]
-        [TestCase("https://hived.privex.io")]
-        [TestCase("https://anyx.io")]
+        public async Task NodeScoringTest()
+        {
+            await NodeManager.UpdateScores();
+        }
 
-        public async Task NodeTest(string url)
+        [Test, Parallelizable, TestCaseSource("ActiveNodes")]
+        public async Task NodeTest(ApiNode apiNode)
         {
             var token = CancellationToken.None;
 
@@ -40,7 +39,7 @@ namespace Ditch.Hive.Tests
             try
             {
                 var isConnected = await Api
-                    .ConnectToAsync(url, token)
+                    .ConnectToAsync(apiNode.Url, token)
                     .ConfigureAwait(false);
 
                 Assert.IsTrue(isConnected, $"1 - DOWN {sw.ElapsedMilliseconds}");
