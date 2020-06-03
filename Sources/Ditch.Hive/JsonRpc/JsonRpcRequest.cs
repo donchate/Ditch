@@ -32,7 +32,7 @@ namespace Ditch.Hive.JsonRpc
         public static JsonRpcRequest CondenserRequest(string api, string method)
         {
             var id = GetId();
-            var message = $"{{\"jsonrpc\":\"2.0\",\"method\":\"{api}.{method}\",\"id\":{id}}}";
+            var message = $"{{\"jsonrpc\":\"2.0\",\"method\":\"{api}.{method}\",\"params\":[],\"id\":{id}}}";
             return new JsonRpcRequest(id, message);
         }
 
@@ -47,7 +47,7 @@ namespace Ditch.Hive.JsonRpc
         {
             var id = GetId();
             var jsonObj = data == null ? "[]" : JsonConvert.SerializeObject(data, jsonSerializerSettings);
-            var message = $"{{\"jsonrpc\":\"2.0\",\"method\":\"{api}.{method}\",\"params\":[{jsonObj}],\"id\":{id}}}";
+            var message = $"{{\"jsonrpc\":\"2.0\",\"method\":\"{api}.{method}\",\"params\":{jsonObj},\"id\":{id}}}";
             return new JsonRpcRequest(id, message);
         }
 

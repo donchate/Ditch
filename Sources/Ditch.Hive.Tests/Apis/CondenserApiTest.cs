@@ -66,8 +66,8 @@ namespace Ditch.Hive.Tests.Apis
         [Parallelizable]
         public async Task get_accounts()
         {
-            var resp = await Api.CondenserGetAccountsAsync(new string[] { "donchate" }, CancellationToken.None).ConfigureAwait(false);
-            Assert.IsFalse(resp.IsError);
+            var resp = await Api.CondenserGetAccountsAsync(new string[] { "hiveio" }, CancellationToken.None).ConfigureAwait(false);
+            TestProperties(resp, true);
         }
 
         //  "condenser_api.get_active_votes",

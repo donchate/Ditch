@@ -205,7 +205,7 @@ namespace Ditch.Hive
         /// <returns>List<ApiAccountObject></returns>
         public Task<JsonRpcResponse<List<ApiAccountObject>>> CondenserGetAccountsAsync(string[] args, CancellationToken token)
         {
-            return CondenserCustomGetRequestAsync<List<ApiAccountObject>>(KnownApiNames.CondenserApi, "get_accounts", args, token);
+            return CondenserCustomGetRequestAsync<List<ApiAccountObject>>(KnownApiNames.CondenserApi, "get_accounts", new string[][] { args }, token);
         }
 
         /// <summary>
@@ -216,7 +216,7 @@ namespace Ditch.Hive
         /// <returns>List<VoteState></returns>
         public Task<JsonRpcResponse<List<VoteState>>> CondenserGetActiveVotesAsync(string[] args, CancellationToken token)
         {
-            return CondenserCustomGetRequestAsync<List<VoteState>>(KnownApiNames.CondenserApi, "get_active_votes", args, token);
+            return CondenserCustomGetRequestAsync<List<VoteState>>(KnownApiNames.CondenserApi, "get_active_votes", new string[][] { args }, token);
         }
 
         /// <summary>
